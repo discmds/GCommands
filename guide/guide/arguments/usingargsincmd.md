@@ -7,38 +7,18 @@ For the example from the `!/say Hello` command, argument 0 will be `Hello`.
 This system also works for the slash and normal command.
 
 ```js
-const { Command, ArgumentType } = require("gcommands");
-
-module.exports = class SayCommand extends Command {
-    constructor(...args) {
-        super(...args, {
-            name: "say",
-            aliases: ["send"],
-            userRequiredPermissions: "MANAGE_MESSAGES",
-            args: [
-                {
-                    name: "text",
-                    type: ArgumentType.STRING,
-                    description: "text", // only for slash 
-                    prompt: "What do you want to send?", // only for normal
-                    choices: [
-                        {
-                            name: "embed",
-                            value: "embed"
-                        },
-                        {
-                            name: "link",
-                            value: "link"
-                        }
-                    ]
-                    required: true // only slash
-                }
-            ]
-        })
-    }
-
-    async run({client, respond}, args) {
-        respond(args.join(" "))
+module.exports = {
+    name: 'say',
+    description: 'Shows latency ping!',
+    options: [{
+        name: 'input',
+        type: 'STRING',
+        description: 'The input to echo back',
+        required: true,
+    }]
+    run: async({ interaction, client, args, reply, edit) => {
+        let r = await reply({ content: "hi" + interaction.member }) //interaction will be slash interaction when user uses slash command but if users uses normal then interaction will me message!
+        await edit(r, { content: "hello"})
     }
 }
 ```
@@ -54,34 +34,23 @@ module.exports = class SayCommand extends Command {
     </discord-messages>
     <discord-messages>
             <dis-message profile="izboxo">
-            .say
+            .say Hi
         </dis-message>
         <dis-message profile="gcommands">
-            What do you want to send?
-        </dis-message>
-        <dis-message profile="izboxo">
-            hello
-        </dis-message>
-        <dis-message profile="gcommands">
-            hello
+            Hi
         </dis-message>
     </discord-messages>
 </div>
 
-::: tip
-If you want to know more about how the `args` object works for `SUB_COMMAND` and `SUB_COMMAND_GROUP` you can take a look [here](https://discord.com/developers/docs/interactions/slash-commands#example-walkthrough).
-:::
-
 ## All types of arguments:
 ```js
-const { ArgumentType } = require("gcommands")
-ArgumentType.STRING
-ArgumentType.INTEGER
-ArgumentType.BOOLEAN
-ArgumentType.USER
-ArgumentType.CHANNEL
-ArgumentType.ROLE
-ArgumentType.MENTIONABLE // only for slash
-ArgumentType.SUB_COMMAND_GROUP // only for slash
-ArgumentType.SUB_COMMAND // only for slash
+STRING
+INTEGER
+BOOLEAN
+USER
+CHANNEL
+ROLE
+MENTIONABLE
+SUB_COMMAND_GROUP
+SUB_COMMAND
 ```
