@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: /banner.png
+heroImage: /blogo.png
 heroText: Discord-cmds.js
 tagline: An easy to use, advanced Discord Slash commands
 actionText: Get Started →
