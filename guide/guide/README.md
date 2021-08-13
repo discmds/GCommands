@@ -4,7 +4,7 @@
 
 <language lang="en">
 
-If you came here you probably want to learn how to work with the gcommands framework. GComamnds allows you to easily create commands in the [discord.js](https://discordjs.guide) library. For example, this guide will teach you:
+If you came here you probably want to learn how to work with the gcommands framework. discord-cmds.js allows you to easily create commands in the [discord.js](https://discordjs.guide) library. For example, this guide will teach you:
  - How to run a bot.
  - How to create commands correctly.
  - Easily create slash commands.
