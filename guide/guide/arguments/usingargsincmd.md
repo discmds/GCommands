@@ -16,7 +16,7 @@ module.exports = {
         description: 'The input to echo back',
         required: true,
     }]
-    run: async({ interaction, client, args, reply, editReply) => {
+    run: async({ interaction, client, args, reply, editReply }) => {
         let r = await reply({ content: "hi" + interaction.member }) //interaction will be slash interaction when user uses slash command but if users uses normal then interaction will me message!
         await editReply(r, { content: "hello"})
     }
