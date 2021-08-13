@@ -42,4 +42,4 @@ client.login("token")
 ```
 
 ### 👥 | Contact
-<a href="https://discord.gg/jjNkZGyGbK"><img src="https://discord.com/api/guilds/761590241218920478/widget.png?style=banner1"></a>a
+<a href="https://discord.gg/jjNkZGyGbK"><img src="https://discord.com/api/guilds/761590241218920478/widget.png?style=banner1"></a>
