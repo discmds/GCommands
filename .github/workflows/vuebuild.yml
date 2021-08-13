@@ -1,4 +1,4 @@
-name: "vue build | gcommands.js.org Build"
+name: "vue build | discmds.github.io/discord-cmds Build"
 
 on:
   push:
