@@ -1,11 +1,11 @@
 <div align="center">
-    <h1>G Commands</h1>
+    <h1>discord-cmds.js</h1>
   <p>
-    <a href="https://www.npmjs.com/package/gcommands"><img src="https://img.shields.io/npm/v/gcommands?maxAge=3600" alt="NPM version" /></a>
-    <a href="https://www.npmjs.com/package/gcommands"><img src="https://img.shields.io/npm/dt/gcommands?maxAge=3600" alt="NPM downloads" /></a>
+    <a href="https://www.npmjs.com/package/discord-cmds.js"><img src="https://img.shields.io/npm/v/discord-cmds.js?maxAge=3600" alt="NPM version" /></a>
+    <a href="https://www.npmjs.com/package/gcommands"><img src="https://img.shields.io/npm/dt/discord-cmds.js?maxAge=3600" alt="NPM downloads" /></a>
   </p>
   <p>
-    <a href="https://www.npmjs.com/package/gcommands"><img src="https://nodei.co/npm/gcommands.png?downloads=true&stars=true" alt="NPM Banner"></a>
+    <a href="https://www.npmjs.com/package/discord-cmds.js"><img src="https://nodei.co/npm/gcommands.png?downloads=true&stars=true" alt="NPM Banner"></a>
   </p>
 </div>
 
@@ -14,48 +14,32 @@
 ### 📂 | Installation
 ```sh
 npm install gcommands
-yarn install gcommands
-
-npm install github:Garlic-Team/GCommands#dev #dev build
 ```
-
-If you're updating from 3.x to 4.x, check https://gcommands.js.org/guide/additional/fromv3tov4.html
 
 ### 📜 | Setup
 ```js
 const { Client } = require("discord.js")
-const { GCommands } = require("gcommands")
-const client = Client();
+const discmd = require("discord-cmds.js")
+const client = Client()
+
+const dcjs = new discmd(client,{
+cmdDir: "./commands",
+port: 3000, //for starting express app!
+slash: true //your commands can be runned as slash commands!
+normal: true //your commands can be runned as normal commands!
+prefix: "!",
+notOwnerMsg: "You are not my owner",
+ownerID: "" //bot owner id!
+notHavingPermsMsg: "You don't have {PERMISSION} perms!,
+clientNotHavingPermsMsg: "I have have {PERMISSION} perms!
+})
 
 client.on("ready", () => {
-    const gc = new GCommands(client, {
-        cmdDir: "commands/",
-        eventDir: "events/",
-        language: "english",
-        unkownCommandMessage: false,
-        slash: {
-            slash: "both",
-            prefix: "."
-        },
-        database: "url"
-        /* DB SUPPORT
-         * redis://user:pass@localhost:6379
-         * mongodb://user:pass@localhost:27017/dbname
-         * sqlite://path/to/database.sqlite
-         * postgresql://user:pass@localhost:5432/dbname
-         * mysql://user:pass@localhost:3306/dbname
-        */
-    })
-
-    gc.on("debug", (debug)=>{console.log(debug)})
+    console.log("bot ready")
 })
 
 client.login("token")
 ```
 
-### ✍ | Examples
-You can find everything in the [guide](https://gcommands.js.org).<br>
-Join our [discord server](https://discord.gg/AjKJSBbGm2), if you need help or have any questions.
-
 ### 👥 | Contact
-<a href="https://discord.gg/AjKJSBbGm2"><img src="https://discord.com/api/guilds/833628077556367411/widget.png?style=banner1"></a>a
+<a href="https://discord.gg/jjNkZGyGbK"><img src="https://discord.com/api/guilds/761590241218920478/widget.png?style=banner1"></a>a
